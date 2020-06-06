@@ -1,0 +1,80 @@
+  <%= button_to "Logout", '/logout', method: :delete, class: "logout"%>
+<style type="text/css">
+  .root input[type=submit], .root input[type=select]{
+      background-color: dodgerBlue; /* Green */
+      border: none;
+      color: white;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 14px;
+    }
+
+
+    .logout{
+    background-color: dodgerBlue;
+    border: none;
+    color: white;
+    float: right;
+    font-size: 15px;
+    padding: 2px 2px;
+    left: 0px;
+    width: auto;
+    }
+
+        div{
+          margin: auto;
+         width: 50%;
+         padding: 10px;
+        }
+
+       div#div1{
+         margin-left: 40px;
+       }
+       label{
+         background-color: dodgerBlue;
+          font-size: 16px;
+          color: white;
+       }
+       th {
+         background-color: dodgerBlue;
+         color: white;
+       }
+
+       tr:nth-child(even) {background-color: #f2f2f2;}
+       th, td {
+      padding: 15px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+    </style>
+
+  <div class="root">
+  <div id="div1">
+<table border=1>
+  <tr id="headers">
+   <th>Subject</th>
+   <th>Subject Code</th>
+   <th>Class</th>
+   <th>Student Name</th>
+    <th>Marks</th>
+     <th>Edit Marks</th>
+   </tr>
+    <% for item in Subject.where(:teacher_email => session[:email]) %>
+    <% for student in Student.where(:class_code => item.class_code) %>
+    <tr>      <td><%=(item.name) %></td>
+            <td> <%= (item.code) %> </td>
+              <td> <%= (item.class_code) %> </td>
+              <td> <%= (student.name) %> </td>
+              <% if  Mark.where(sub_code: item.code ,stu_code: student.code).empty? %>
+
+                <td> <%= "Not Entered" %>
+              <% else %>
+
+                <td> <%= Mark.where(sub_code: item.code ,stu_code: student.code)[0]["marks"] %> </td>
+                <%end %>
+              <td> <%= link_to "Edit Marks" ,'/marks'%> </td>
+              <% end %>
+                    <% end %>
+</table>
+</div>

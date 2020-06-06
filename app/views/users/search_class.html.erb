@@ -1,0 +1,78 @@
+
+<style type="text/css">
+  .root input[type=submit], .root input[type=select]{
+      background-color: dodgerBlue; /* Green */
+      border: none;
+      color: white;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 14px;
+    }
+
+    div{
+      margin: auto;
+     width: 50%;
+     padding: 10px;
+    }
+
+   div#div1{
+     margin-left: 40px;
+   }
+   label{
+     background-color: dodgerBlue;
+      font-size: 16px;
+      color: white;
+   }
+   th {
+     background-color: dodgerBlue;
+     color: white;
+   }
+
+   tr:nth-child(even) {background-color: #f2f2f2;}
+   th, td {
+  padding: 15px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+    </style>
+
+  <div class="root">
+  <div id="div1">
+<%= form_tag(:controller => "users", :action => "search_class", :method => "post", :class => "nifty_form") do %>
+    <%= label_tag :searchCategory, 'Search by Class' %>
+          <%= select_tag(:searchCategory,  options_for_select(Section.all.map { |category| [category.code, category.code] }, session[:class_id]),:id=>"classOpts", :onchange=>"this.form.submit()") %>
+<% end %>
+
+</div>
+<table border=1>
+  <tr id="headers">
+   <th>Class</th>
+   <th>Students</th>
+ <% for subject in @subjectDetails do %>
+ <th> <%= subject %>
+<% end %>
+<th> Total Marks </th>
+<th> Rank </th>
+</tr>
+
+   <% @studentDetails.each do |student| %>
+   <tr>
+       <td><%=(student["name"]) %></td>
+      <td> <%= (student["class_code"]) %> </td>
+           <% student["subjects"].each do |subject|%>
+            <td> <%= subject[1] %> </td>
+          <% end %>
+          <td> <%= (student["total"]) %> </td>
+          <td> <%= (student["rank"])  %> </td>
+
+           <% end %>
+
+  </tr>
+
+
+
+</table>
+<div>
+   <%= link_to "Go to dashboard" ,'/options' %>
+</div>

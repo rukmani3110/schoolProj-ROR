@@ -1,0 +1,38 @@
+
+<style type="text/css">
+  .root input[type=submit], .root input[type=select]{
+      background-color: dodgerBlue; /* Green */
+      border: none;
+      color: white;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 14px;
+    }
+    div{
+      margin: auto;
+     width: 50%;
+     padding: 10px;
+    }
+
+    </style>
+
+  <div class="root">
+  <div id="div1">
+<%= form_tag(:controller => "users", :action => "search_class", :method => "post", :class => "nifty_form") do %>
+    <%= label_tag :searchCategory, 'Search by Class' %>
+          <%= select_tag(:searchCategory,  options_for_select([['Class VI-AB',"VIAB"],['Class VI-AB1', "VIAB1"], ['Class VII-AB', "VIIAB"]], session[:class_id]),:id=>"classOpts", :onchange=>"this.form.submit()") %>
+<% end %>
+
+        </div>
+        <table border=1>
+          <tr id="headers">
+           <th>Class</th>
+           <th>Students</th>
+           <% for student in Student.where(:class_code => session[:class_id]) do%>
+            <tr>      <td><%=(student.name) %></td>
+                    <td> <%= (student.class_code) %> </td>
+                    </tr>
+                            <% end %>
+
+        </table>

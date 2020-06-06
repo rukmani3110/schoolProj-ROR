@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  sub_code: MyString
+  sub_name: MyString
+  stu_code: MyString
+  stu_name: MyString
+  marks: 1
+
+two:
+  sub_code: MyString
+  sub_name: MyString
+  stu_code: MyString
+  stu_name: MyString
+  marks: 1

@@ -1,0 +1,87 @@
+<div>
+  <% if notice %>
+  <p class="alert alert-danger"><%= notice %></p>
+<% end %>
+<% if alert %>
+  <p class="alert alert-danger"><%= alert %></p>
+<% end %>
+</div>
+<div class="root">
+  <h2>Welcome to Admin Section</h2>
+  <%= button_to "Logout", '/logout', method: :delete, class: "logout"%>
+</div>
+<style type="text/css">
+.button{
+  background-color: dodgerBlue;
+ border: none;
+ color: white;
+ padding: 15px 32px;
+ text-align: center;
+ text-decoration: none;
+ display: inline-block;
+ font-size: 16px;
+
+ position:relative; left:40px;
+ width: 170px;
+}
+
+.logout{
+  background-color: dodgerBlue;
+ border: none;
+ color: white;
+  float: right;
+  font-size: 15px;
+  padding: 2px 2px;
+  left: 0px;
+  width: auto;
+}
+
+.alert {
+ font-weight: bold;
+ -moz-border-radius: 4px 4px 4px 4px;
+ -webkit-border-radius: 4px 4px 4px 4px;
+ border-radius: 4px 4px 4px 4px;
+ margin-bottom: 18px;
+ padding: 12px 25px 12px 24px;
+ -moz-box-shadow: 3px 3px 1px 1px #CCCCCC;
+ -webkit-box-shadow: 3px 3px 1px 1px #CCCCCC;
+ box-shadow: 3px 3px 1px 1px #CCCCCC;
+}
+.alert-danger {
+ background-color: #66E167;
+ border-color: #D6E9C6;
+ width: 280px;
+ color: black;
+ padding-top: 20px;
+}
+h2{
+  color: #999999;
+font-family: arial, sans-serif;
+font-size: 26px;
+font-weight: bold;
+margin-top: 10px;
+margin-bottom: 1px;
+}
+div{
+  margin: auto;
+ width: 50%;
+ padding: 10px;
+}
+
+.root{
+  left:20px;
+}
+
+</style>
+<div>
+<%= button_to "Create Students", '/addStudents', method: :get, class:"button"%>
+</div>
+<div>
+<%= button_to "Create Teachers", '/addTeachers', method: :get, class:"button"%>
+</div>
+<div>
+<%= button_to "Create Subjects", '/addSubjects', method: :get, class:"button"%>
+</div>
+<div>
+<%= button_to "View Marks", '/search_class', method: :post, class:"button"%>
+</div>

@@ -1,0 +1,58 @@
+<div class="main">
+  <div class="root">
+  <h2>Welcome to XYZ school</h2>
+</div>
+
+<div>
+<%= button_to "Admin Section", '/welcome', method: :get, class:"button"%>
+</div>
+<div>
+<%= button_to "Teacher Section", '/welcomeTeacher', method: :get, class:"button"%>
+</div>
+</div>
+
+<style type="text/css">
+.button{
+  background-color: dodgerBlue;
+ borderradius: 4px;
+ color: white;
+ padding: 15px 32px;
+ text-align: center;
+ text-decoration: none;
+ display: inline-block;
+ font-size: 16px;
+ position:relative; left:40px;
+ width: 170px;
+}
+
+h2{
+  color: #999999;
+font-family: arial, sans-serif;
+font-size: 26px;
+font-weight: bold;
+margin-top: 10px;
+margin-bottom: 1px;
+}
+
+div{
+  margin: auto;
+ width: 50%;
+ padding: 10px;
+
+}
+
+.main{
+  background-image: image-url('/assests/back.jpg');
+}
+div.main{
+  padding-top: 50px;
+  border: 2px solid gray;
+  width: 500px;
+  height: 300px;
+}
+div.root{
+  width: 60%;
+  left: 40px;
+}
+
+</style>

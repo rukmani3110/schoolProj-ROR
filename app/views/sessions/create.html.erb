@@ -1,0 +1,52 @@
+<div class="main"><div class="root">
+  <h2>Welcome to Admin Section</h2>
+</div>
+
+<div>
+<%= button_to "Create Students", '/addStudents', method: :get, class:"button"%>
+</div>
+<div>
+<%= button_to "Create Teachers", '/welcome', method: :get, class:"button"%>
+</div>
+<div>
+<%= button_to "Create Subjects", '/welcome', method: :get, class:"button"%>
+</div>
+<div>
+<%= button_to "View Marks", '/welcome', method: :get, class:"button"%>
+</div>
+</div>
+
+<style type="text/css">
+.button{
+  background-color: dodgerBlue;
+ border: none;
+ color: white;
+ padding: 15px 32px;
+ text-align: center;
+ text-decoration: none;
+ display: inline-block;
+ font-size: 16px;
+
+ position:relative; left:40px;
+ width: 170px;
+}
+h2{
+  color: #999999;
+font-family: arial, sans-serif;
+font-size: 26px;
+font-weight: bold;
+margin-top: 10px;
+margin-bottom: 1px;
+}
+div{
+  margin: auto;
+ width: 50%;
+ padding: 10px;
+}
+
+.root{
+  left:20px;
+}
+
+
+</style>
